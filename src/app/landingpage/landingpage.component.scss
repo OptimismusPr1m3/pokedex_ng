@@ -1,0 +1,43 @@
+@use "../../styles.scss" as styles;
+
+.landing {
+    max-width: 1920px;
+    width: 100%;
+    @include styles.dFlex(center, row, center, 0);
+    box-sizing: border-box;
+
+    >header {
+        width: 100%;
+        @include styles.dFlex(center, row, space-between, 16px);
+        padding: 12px 40px;
+
+        >.left-header {
+            @include styles.dFlex(center, row, flex-start, 32px);
+
+            >.dex-home-pair {
+                @include styles.dFlex(center, row, flex-start, 16px);
+
+                >.gap {
+                    @include styles.dFlex(center, row, flex-start, 16px);
+                    font-size: 22px;
+                    font-weight: bold;
+                }
+            }
+
+            >.pkm-items-locations-pair {
+                @include styles.dFlex(center, row, flex-start, 36px);
+                font-size: 18px;
+                font-weight: bold;
+            }
+        }
+
+        >.right-header {
+            @include styles.dFlex(center, row, flex-end, 32px);
+            > .settings {
+                @include styles.dFlex(center, row, center, 0px);
+                width: 40px;
+                height: 40px;
+            }
+        }
+    }
+}
