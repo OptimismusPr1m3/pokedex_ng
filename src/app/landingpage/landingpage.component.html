@@ -21,5 +21,6 @@
             </div>
         </div>
     </header>
-
+    <button (click)="this.endpoint.getPokemonByName('pikachu')">Get Single Pokemon</button>
+    <button (click)="this.endpoint.getPokemonList(70, 5)">Get 10 Pokemon</button>
 </section>
