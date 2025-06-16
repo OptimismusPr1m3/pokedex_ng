@@ -32,3 +32,9 @@ body {
   justify-content: $justify;
   gap: $gap;
 }
+
+app-landingpage {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
