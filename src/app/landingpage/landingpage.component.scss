@@ -6,3 +6,9 @@
     @include styles.dFlex(center, column, center, 0);
     box-sizing: border-box;
 }
+
+.main-content {
+    width: 100%;
+    max-width: 1200px;
+    @include styles.dFlex(center, row, center, 0);
+}

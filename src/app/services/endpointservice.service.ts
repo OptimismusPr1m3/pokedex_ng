@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -32,6 +33,14 @@ export class EndpointserviceService {
       },
       complete: () => { console.log('Pokemon list fetch complete'); }
     });
+  }
+
+  returnPokemonList(offset: number = 0, limit: number = 10) {
+    return this.http.get(`${this.API}?offset=${offset}&limit=${limit}`);
+  }
+
+  returnPokemonByURL(url: string) {
+    return this.http.get(url);
   }
 
   getPokemonById(id: number) {

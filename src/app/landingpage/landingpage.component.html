@@ -1,1 +1,6 @@
 <app-header class="landing"></app-header>
+<section class="main-content">
+    <div *ngFor="let pkmn of pokemonList">
+        <div> {{ pkmn.url }}</div>
+    </div>
+</section>
