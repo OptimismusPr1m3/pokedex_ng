@@ -2,11 +2,10 @@ export interface Pokemon {
     name?: string;
     url?: string;
     id?: number;
-    image?: string;
-    types?: string[];
+    types?: any[];
     height?: number;
     weight?: number;
-    abilities?: string[];
+    abilities?: any[];
     stats?: {
         hp: number;
         attack: number;
