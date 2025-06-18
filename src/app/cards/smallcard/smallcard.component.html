@@ -1,18 +1,17 @@
 <div class="card-container">
-  <div class="card">
     <div class="card-header">
       <img
         [src]="pokemon()?.sprites?.front_default"
         alt="{{ pokemon()?.name }}"
         class="pokemon-image"
       />
-      <h2 class="pokemon-name">{{ capitalizeLetter(pokemon()?.name) }}</h2>
     </div>
     <div class="card-body">
+      <h2 class="pokemon-name">{{ capitalizeLetter(pokemon()?.name) }}</h2>
+      <span >{{ capitalizeTypes(pokemon()?.types) }} | ID:#{{formatID(pokemon()?.id)}}</span>
       <!-- <span>Abilities:</span>
       <p *ngFor="let ability of pokemon()?.abilities" class="pokemon-ability">
         {{ capitalizeLetter(ability.ability.name) }}
       </p> -->
     </div>
-  </div>
 </div>

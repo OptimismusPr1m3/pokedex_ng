@@ -22,7 +22,7 @@ export class LandingpageComponent {
   }
 
   ngOnInit() {
-    this.endpoint.returnPokemonList(50, 1).subscribe({
+    this.endpoint.returnPokemonList(12, 6).subscribe({
       next: (data: any) => {
         this.pokemonList = data.results;
         console.log('Pokemon list fetched:', this.pokemonList);

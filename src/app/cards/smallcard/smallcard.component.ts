@@ -17,12 +17,40 @@ export class SmallcardComponent {
     }
   }
 
-  capitalizeLetter(str: string | undefined): string | undefined{
+  capitalizeTypes(types: any[] | undefined): string | undefined {
+    let typeNames: string | undefined;
+    if (!types || types.length === 0) {
+      console.warn('No types found for this Pokemon');
+      return undefined;
+    }
+    if (types.length > 0) {
+      typeNames = types
+        .map(
+          (type) =>
+            type.type.name.charAt(0).toUpperCase() + type.type.name.slice(1)
+        )
+        .join('/');
+      console.log('Multiple types: ', typeNames);
+      return typeNames;
+    } else {
+      return undefined;
+    }
+  }
+
+  capitalizeLetter(str: string | undefined): string | undefined {
     if (str) {
       return str
         .split('-')
         .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
         .join(' ');
     } else return undefined;
+  }
+
+  formatID(id: number | undefined): string | undefined {
+    if (id) {
+      return id.toString().padStart(3, '0');
+    } else {
+      return undefined;
+    }
   }
 }

@@ -1,0 +1,28 @@
+@use "../../../styles.scss" as styles;
+
+.card-container {
+  width: 100%;
+  @include styles.dFlex(center, column, center, 0);
+  min-width: 176px;
+  margin-bottom: 12px;
+  > .card-header {
+    width: 100%;
+
+    @include styles.dFlex(center, column, center, 12px);
+
+    > img {
+      min-width: 96px;
+      max-width: 148px;
+      width: 100%;
+    }
+  }
+
+  > .card-body {
+    width: 100%;
+    @include styles.dFlex(center, column, center, 0);
+  }
+}
+
+h2 {
+  margin: 0;
+}

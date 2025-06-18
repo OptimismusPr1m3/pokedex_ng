@@ -17,7 +17,7 @@
 .main-content {
     width: 100%;
     max-width: 1920px;
-    @include styles.dFlex(center, row, center, 0);
+    @include styles.dFlex(center, row, center, 12px);
     padding: 0px 160px;
     box-sizing: border-box;
     flex-wrap: wrap;
