@@ -5,6 +5,8 @@
   @include styles.dFlex(center, column, center, 0);
   min-width: 176px;
   margin-bottom: 12px;
+  border: 2px solid #000000;
+  border-radius: 12px;
   > .card-header {
     width: 100%;
 
