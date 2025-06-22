@@ -19,7 +19,7 @@ export class LandingpageComponent {
   constructor(public endpoint: EndpointserviceService) {}
 
   ngOnInit() {
-    this.endpoint.returnPokemonList(1, 5).subscribe({
+    this.endpoint.returnPokemonList(1, 10).subscribe({
       next: (data: any) => {
         this.pokemonList = data.results;
         console.log('Pokemon list fetched:', this.pokemonList);
@@ -46,5 +46,4 @@ export class LandingpageComponent {
       }
     });
   }
-
 }
