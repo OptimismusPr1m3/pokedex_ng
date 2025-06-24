@@ -1,4 +1,4 @@
-<div class="card-container" [ngStyle]="{'background': setBackgroundColor(pokemon()?.types) || '#f0f0f0'}">
+<div (click)="openPokemon()" class="card-container" [ngStyle]="{'background': setBackgroundColor(pokemon()?.types) || '#f0f0f0'}">
     <div class="card-header">
       <img
         [src]="pokemon()?.sprites?.front_default"

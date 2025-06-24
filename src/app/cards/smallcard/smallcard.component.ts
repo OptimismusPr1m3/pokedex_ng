@@ -1,6 +1,8 @@
 import { Component, input } from '@angular/core';
 import { Pokemon } from '../../interfaces/pokemon';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
+import { EndpointserviceService } from '../../services/endpointservice.service';
 
 @Component({
   selector: 'app-smallcard',
@@ -32,6 +34,8 @@ export class SmallcardComponent {
     fairy: '#ff99e6', // Zuckersüßes Rosa für Fee
   };
 
+  constructor(public endpoints: EndpointserviceService) {}
+
   ngOnInit() {
     if (this.pokemon()) {
       console.log('Pokemon data received:', this.pokemon());
@@ -51,7 +55,7 @@ export class SmallcardComponent {
             type.type.name.charAt(0).toUpperCase() + type.type.name.slice(1)
         )
         .join('/');
-      console.log('Multiple types: ', typeNames);
+      //console.log('Multiple types: ', typeNames);
       return typeNames;
     } else {
       return undefined;
@@ -100,4 +104,14 @@ export class SmallcardComponent {
 
     return `linear-gradient(45deg, ${primaryColor}, ${secondaryColor})`;
   }
+
+  openPokemon() {
+    if (this.pokemon()) {
+      this.endpoints.currentPokemon.set(this.pokemon())
+    }
+    
+    this.endpoints.isBigCard.set(true)
+    console.log('Hier das Pokemon was gewählt wurde: ', this.endpoints.currentPokemon())
+  }
+
 }

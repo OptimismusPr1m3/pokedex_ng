@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Pokemon } from '../interfaces/pokemon';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,12 @@ import { Observable } from 'rxjs';
 export class EndpointserviceService {
 
   API: string = 'https://pokeapi.co/api/v2/pokemon/'
+  pokemon: Pokemon = {}
 
+  /* Globals */
+  isBigCard = signal<Boolean>(false);
+  currentPokemon = signal<Pokemon | undefined>(this.pokemon)
+  
   constructor(private http: HttpClient) { }
 
   getPokemonByName(pokemon: string) {
