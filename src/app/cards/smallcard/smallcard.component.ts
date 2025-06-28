@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { Pokemon } from '../../interfaces/pokemon';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
@@ -12,6 +12,7 @@ import { EndpointserviceService } from '../../services/endpointservice.service';
 })
 export class SmallcardComponent {
   pokemon = input<Pokemon>();
+  currentPokemon = output<Pokemon | undefined>();
 
   BACKGROUND_COLORS: { [key: string]: string } = {
     fire: '#ff5733', // Lebendiges Korallenrot für Feuer
@@ -107,11 +108,9 @@ export class SmallcardComponent {
 
   openPokemon() {
     if (this.pokemon()) {
-      this.endpoints.currentPokemon.set(this.pokemon())
-    }
-    
+      this.currentPokemon.emit(this.pokemon())
+    }  
     this.endpoints.isBigCard.set(true)
-    console.log('Hier das Pokemon was gewählt wurde: ', this.endpoints.currentPokemon())
   }
 
 }

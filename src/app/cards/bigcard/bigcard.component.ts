@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
+import { Pokemon } from '../../interfaces/pokemon';
 
 @Component({
   selector: 'app-bigcard',
@@ -7,5 +8,15 @@ import { Component } from '@angular/core';
   styleUrl: './bigcard.component.scss'
 })
 export class BigcardComponent {
+
+  pokemonData = input<Pokemon>();
+
+  constructor() {}
+
+  ngOnInit() {
+    if (this.pokemonData()) {
+      console.log('Hier das gewählte Pokemon: ', this.pokemonData())
+    }
+  }
 
 }

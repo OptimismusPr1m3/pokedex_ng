@@ -66,6 +66,15 @@
   /* move the element down by 5px (it will stay in place because it's attached to the element that also moves up 5px) */
 }
 
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #5a5757;
+}
+
 app-smallcard {
     cursor: pointer;
 }

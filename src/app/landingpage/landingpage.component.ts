@@ -5,21 +5,24 @@ import { HeaderComponent } from '../shared/header/header.component';
 import { CommonModule } from '@angular/common';
 import { Pokemon } from '../interfaces/pokemon';
 import { SmallcardComponent } from '../cards/smallcard/smallcard.component';
+import { BigcardComponent } from "../cards/bigcard/bigcard.component";
 
 @Component({
   selector: 'app-landingpage',
-  imports: [MatIconModule, HeaderComponent, CommonModule, SmallcardComponent],
+  imports: [MatIconModule, HeaderComponent, CommonModule, SmallcardComponent, BigcardComponent],
   templateUrl: './landingpage.component.html',
   styleUrl: './landingpage.component.scss',
 })
 export class LandingpageComponent {
   pokemonList: Pokemon[] = [];
   pokemonDetails: Pokemon[] = [];
+  isBigCard: Boolean = false
+  currentOpenedPokemon: Pokemon | undefined = {}
 
   constructor(public endpoint: EndpointserviceService) {}
 
   ngOnInit() {
-    this.endpoint.returnPokemonList(1, 10).subscribe({
+    this.endpoint.returnPokemonList(1, 1).subscribe({
       next: (data: any) => {
         this.pokemonList = data.results;
         console.log('Pokemon list fetched:', this.pokemonList);
@@ -46,4 +49,9 @@ export class LandingpageComponent {
       }
     });
   }
+
+  setPokemon(event: Pokemon | undefined){
+    this.currentOpenedPokemon = event
+  }
+
 }
