@@ -1,11 +1,17 @@
 <app-header class="landing"></app-header>
 <div class="separator"></div>
 <section class="main-content">
-    <div *ngFor="let pkmn of pokemonDetails">
-        <app-smallcard class="hvr-float-shadow" (currentPokemon)="setPokemon($event)" [pokemon]="pkmn"></app-smallcard>
-    </div>
+  <div *ngFor="let pkmn of pokemonDetails">
+    <app-smallcard
+      class="hvr-float-shadow"
+      (currentPokemon)="setPokemon($event)"
+      [pokemon]="pkmn"
+    ></app-smallcard>
+  </div>
 </section>
 
 <div *ngIf="endpoint.isBigCard()" class="overlay">
-    <app-bigcard [pokemonData]="currentOpenedPokemon" ></app-bigcard>
+  <div class="card-ov">
+    <app-bigcard [pokemonData]="currentOpenedPokemon"></app-bigcard>
+  </div>
 </div>

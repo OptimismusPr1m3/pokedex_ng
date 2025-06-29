@@ -1,1 +1,24 @@
-<p>bigcard works!</p>
+<div class="pokemon-card">
+    <div class="card-header">
+      <h2 class="pokemon-name">{{ pokemonData()?.name }}</h2>
+      <div class="hp">HP <span>100</span> <span class="type-icon">🔥</span></div>
+    </div>
+    <div class="pokemon-image">
+      <img src="charizard.png" alt="Charizard">
+    </div>
+    <div class="card-body">
+      <p class="flavor-text"><em>A rare and powerful Fire Pokémon that soars the skies.</em></p>
+      <div class="attacks">
+        <div class="attack">
+          <span class="damage">30</span> <span class="attack-name">Flamethrower</span>
+        </div>
+        <div class="attack">
+          <span class="damage">50</span> <span class="attack-name">Fire Spin</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <div class="weakness">Weakness: Water <span>×2</span></div>
+      <div class="qr-code"><img src="qr-code.png" alt="QR Code"></div>
+    </div>
+  </div>

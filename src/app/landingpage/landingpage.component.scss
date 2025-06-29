@@ -73,6 +73,12 @@
   left: 0;
   right: 0;
   background-color: #5a5757;
+  > .card-ov {
+    @include styles.dFlex(center, row, center, 0);
+    width: 100%;
+    box-sizing: border-box;
+    height: 100vh;
+  }
 }
 
 app-smallcard {
