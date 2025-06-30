@@ -1,19 +1,20 @@
 @use "../../../styles.scss" as styles;
 
 .pokemon-card {
-  width: 300px;
-  height: 420px;
-  background: linear-gradient(135deg, #ff4500, #ff8c00);
-  border-radius: 10px;
+  @include styles.dFlex(unset, column, space-between, 0);
+  width: 360px;
+  height: 480px;
+  //background: linear-gradient(135deg, #ff4500, #ff8c00);
+  border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   overflow: hidden;
   position: relative;
   transition: transform 0.3s ease;
 
-  &:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
-  }
+  // &:hover {
+  //   transform: scale(1.05);
+  //   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  // }
 
   .card-header {
     display: flex;
@@ -28,7 +29,7 @@
       margin: 0;
     }
 
-    .hp {
+    .id {
       font-size: 18px;
       .type-icon {
         margin-left: 5px;
@@ -44,8 +45,8 @@
     animation: holoEffect 2s infinite;
 
     img {
-      max-width: 100%;
-      max-height: 100%;
+      width: 100%;
+      max-width: 60%;
       transition: transform 0.3s ease;
     }
 

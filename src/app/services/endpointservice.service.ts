@@ -14,6 +14,27 @@ export class EndpointserviceService {
   /* Globals */
   isBigCard = signal<Boolean>(false);
   currentPokemon = signal<Pokemon | undefined>(this.pokemon)
+
+    BACKGROUND_COLORS: { [key: string]: string } = {
+    fire: '#ff5733', // Lebendiges Korallenrot für Feuer
+    water: '#00aaff', // Frisches Türkisblau für Wasser
+    grass: '#00cc66', // Saftiges Grün für Pflanze
+    electric: '#ffea00', // Knalliges Neon-Gelb für Elektro
+    psychic: '#ff3399', // Vibrantes Pink für Psycho
+    ice: '#66e6ff', // Kühles Cyan für Eis
+    dragon: '#7b4dff', // Mystisches Violett für Drache
+    normal: '#d9d9d9', // Helles, cleanes Grau für Normal
+    fighting: '#ff8c1a', // Energetisches Orange für Kampf
+    flying: '#99ccff', // Leichtes Himmelblau für Flug
+    poison: '#b833ff', // Giftiges Neon-Lila für Gift
+    ground: '#e6b800', // Warmes Goldbraun für Boden
+    rock: '#8c6b33', // Robuster Bronzeton für Gestein
+    bug: '#aaff33', // Frisches Limettengrün für Käfer
+    ghost: '#6b33cc', // Tiefes, mysteriöses Indigo für Geist
+    steel: '#b3b3cc', // Schimmerndes Silbergrau für Stahl
+    dark: '#4d4d4d', // Dunkles, edles Anthrazit für Unlicht
+    fairy: '#ff99e6', // Zuckersüßes Rosa für Fee
+  };
   
   constructor(private http: HttpClient) { }
 
