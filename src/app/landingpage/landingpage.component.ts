@@ -50,6 +50,7 @@ export class LandingpageComponent {
     });
   }
 
+
   setPokemon(event: Pokemon | undefined){
     this.currentOpenedPokemon = event
   }

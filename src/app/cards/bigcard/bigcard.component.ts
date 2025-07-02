@@ -12,14 +12,29 @@ import { CommonModule } from '@angular/common';
 export class BigcardComponent {
 
   pokemonData = input<Pokemon>();
+  base_hp: number = 0
+  description: any[] = []
 
-  constructor(public globals: EndpointserviceService) {}
+  constructor(public endpoints: EndpointserviceService) {}
 
   ngOnInit() {
     if (this.pokemonData()) {
       console.log('Hier das gewählte Pokemon: ', this.pokemonData())
+      this.base_hp = this.pokemonData()?.stats?.[0].base_stat
+      this.getDescription(this.pokemonData()?.id)
     }
   }
+
+  getDescription(id: number | undefined){
+    this.endpoints.getPokemonDescription(id).subscribe({
+      next: (data: any) => {
+        //console.log('Hier die Data:', data.flavor_text_entries)
+        this.description = data.flavor_text_entries
+      },
+      error: (err) => {console.error(err)},
+      complete: () => {console.log('Hier die Data:', this.description[41].flavor_text)}
+    })
+  } 
 
   capitalizeLetter(str: string | undefined): string | undefined {
     if (str) {
@@ -37,19 +52,19 @@ export class BigcardComponent {
     }
 
     const primaryType = types[0].type.name.toLowerCase();
-    const primaryColor = this.globals.BACKGROUND_COLORS[primaryType] || '#f0f0f0';
+    const primaryColor = this.endpoints.BACKGROUND_COLORS[primaryType] || '#f0f0f0';
 
     if (types.length === 1) {
-      if (!this.globals.BACKGROUND_COLORS[primaryType]) {
+      if (!this.endpoints.BACKGROUND_COLORS[primaryType]) {
         console.warn(`No background color defined for type: ${primaryType}`);
       }
       return primaryColor;
     }
 
     const secondaryType = types[1].type.name.toLowerCase();
-    const secondaryColor = this.globals.BACKGROUND_COLORS[secondaryType] || '#f0f0f0';
+    const secondaryColor = this.endpoints.BACKGROUND_COLORS[secondaryType] || '#f0f0f0';
 
-    if (!this.globals.BACKGROUND_COLORS[secondaryType]) {
+    if (!this.endpoints.BACKGROUND_COLORS[secondaryType]) {
       console.warn(`No background color defined for type: ${secondaryType}`);
     }
 

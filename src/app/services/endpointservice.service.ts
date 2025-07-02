@@ -4,18 +4,18 @@ import { Observable } from 'rxjs';
 import { Pokemon } from '../interfaces/pokemon';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class EndpointserviceService {
-
-  API: string = 'https://pokeapi.co/api/v2/pokemon/'
-  pokemon: Pokemon = {}
+  API: string = 'https://pokeapi.co/api/v2/pokemon/';
+  API_: string = 'https://pokeapi.co/api/v2/pokemon-species/';
+  pokemon: Pokemon = {};
 
   /* Globals */
   isBigCard = signal<Boolean>(false);
-  currentPokemon = signal<Pokemon | undefined>(this.pokemon)
+  currentPokemon = signal<Pokemon | undefined>(this.pokemon);
 
-    BACKGROUND_COLORS: { [key: string]: string } = {
+  BACKGROUND_COLORS: { [key: string]: string } = {
     fire: '#ff5733', // Lebendiges Korallenrot für Feuer
     water: '#00aaff', // Frisches Türkisblau für Wasser
     grass: '#00cc66', // Saftiges Grün für Pflanze
@@ -35,19 +35,25 @@ export class EndpointserviceService {
     dark: '#4d4d4d', // Dunkles, edles Anthrazit für Unlicht
     fairy: '#ff99e6', // Zuckersüßes Rosa für Fee
   };
-  
-  constructor(private http: HttpClient) { }
+
+  constructor(private http: HttpClient) {}
 
   getPokemonByName(pokemon: string) {
     this.http.get(`${this.API}${pokemon}`).subscribe({
-      next:(data: any) => {
+      next: (data: any) => {
         console.log(data);
       },
-      error:(err:any) => {
-        console.error('Error fetching Pokemon data:', err)
+      error: (err: any) => {
+        console.error('Error fetching Pokemon data:', err);
       },
-      complete: () => {console.log('Pokemon data fetch complete')}
-    })
+      complete: () => {
+        console.log('Pokemon data fetch complete');
+      },
+    });
+  }
+
+  getPokemonDescription(id: number | undefined) {
+    return this.http.get(`${this.API_}${id}`);
   }
 
   getPokemonList(offset: number = 0, limit: number = 10) {
@@ -58,7 +64,9 @@ export class EndpointserviceService {
       error: (err: any) => {
         console.error('Error fetching Pokemon list:', err);
       },
-      complete: () => { console.log('Pokemon list fetch complete'); }
+      complete: () => {
+        console.log('Pokemon list fetch complete');
+      },
     });
   }
 
@@ -78,8 +86,9 @@ export class EndpointserviceService {
       error: (err: any) => {
         console.error('Error fetching Pokemon by ID:', err);
       },
-      complete: () => { console.log('Pokemon by ID fetch complete'); }
+      complete: () => {
+        console.log('Pokemon by ID fetch complete');
+      },
     });
   }
-
 }

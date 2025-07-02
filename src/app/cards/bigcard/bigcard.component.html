@@ -1,13 +1,13 @@
 <div class="pokemon-card" [ngStyle]="{'background': setBackgroundColor(pokemonData()?.types) || '#f0f0f0'}">
     <div class="card-header">
       <h2 class="pokemon-name">{{ capitalizeLetter(pokemonData()?.name) }}</h2>
-      <div class="id">ID: <span>{{ formatID(pokemonData()?.id )}}</span> <span class="type-icon">🔥</span></div>
+      <div class="id">HP: <span>{{ base_hp }}</span> <span class="type-icon"></span></div>
     </div>
     <div class="pokemon-image">
       <img [src]="pokemonData()?.sprites?.front_default" alt="Charizard">
     </div>
     <div class="card-body">
-      <p class="flavor-text"><em>A rare and powerful Fire Pokémon that soars the skies.</em></p>
+      <p class="flavor-text"><em>{{ description[41].flavor_text }}</em></p>
       <div class="attacks">
         <div class="attack">
           <span class="damage">30</span> <span class="attack-name">Flamethrower</span>

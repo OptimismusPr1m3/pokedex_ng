@@ -30,6 +30,7 @@
     }
 
     .id {
+      @include styles.dFlex(center, row, center, 0);
       font-size: 18px;
       .type-icon {
         margin-left: 5px;
